@@ -26,14 +26,15 @@ def encrypt_data(text):
 # Decrypt
 def decrypt_data(encrypted_text, passkey):
     passkey_hash = hash_passkey(passkey)
-    stored = st.session_state.stored_data.get(encrypted_text)
-
-    if stored and stored["passkey"] == passkey_hash:
-        st.session_state.failed_attempts = 0
-        return cipher.decrypt(encrypted_text.encode()).decode()
-    else:
-        st.session_state.failed_attempts += 1
-        return None
+    for stored_encrypted_text, stored_data in st.session_state.stored_data.items():
+        if stored_encrypted_text == encrypted_text:
+            if stored_data["passkey"] == passkey_hash:
+                st.session_state.failed_attempts = 0
+                return cipher.decrypt(encrypted_text.encode()).decode()
+            else:
+                st.session_state.failed_attempts += 1
+                return None
+    return None
 
 # Login check
 def require_login():
