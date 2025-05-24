@@ -35,5 +35,5 @@ This repository contains beginner to intermediate level Python projects complete
 
 1. **Clone this repository**  
    ```bash
-   git clone https://github.com/asadshabir/---GIAIC-Python-CodeMaster-Series.git
-   cd ---GIAIC-Python-CodeMaster-Series
+   git clone https://github.com/asadshabir/GIAIC-Python-CodeMaster-Series/edit/main/README.md
+   cd GIAIC-Python-CodeMaster-Series
